@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мое резюме</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            transition: background-color 0.5s ease;
+        }
+
+        h1, h2 {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        #surname {
+            border: 2px solid #4CAF50;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 8px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        #surname:hover {
+            color: white;
+            background-color: #4CAF50;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #555;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin: 20px 0;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #008CBA;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #005f73;
+        }
+
+        section {
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        table, th, td {
+            border: 1px solid #888;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        #datetime {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        // Скрипт с вопросом про возраст
+        if (confirm('Доброго времени суток, у этой страницы есть к вам вопрос, вы готовы ответить?')) {
+            var a = false;
+            while (!a) {
+                var your_age = prompt('Сколько Вам лет?', 'Введите сюда ваш возраст');
+                a = confirm('Вы уверены, что Вам ' + your_age + '?');
+            }
+        }
+        alert("Спасибо, что уделили время");
+
+        function changeSurname() {
+            const newSurname = document.getElementById("surnameInput").value;
+            if (newSurname.trim() !== "") {
+                document.getElementById("surname").textContent = "Фамилия: " + newSurname;
+            }
+        }
+
+        function changeBackgroundColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        }
+
+        function updateDateTime() {
+            const now = new Date();
+            const datetime = now.toLocaleString();
+            document.getElementById('datetime').textContent = "Текущие дата и время: " + datetime;
+        }
+
+        window.onload = updateDateTime;
+    </script>
+</head>
+<body>
+    <h1>Имя: Роман</h1>
+    <h2 id="surname">Фамилия: Иванов</h2>
+    <img src="https://static35.tgcnt.ru/posts/_0/fc/fc3c10bb8879c8eb15607fc62b8a0ad9.jpg" alt="Фото профиля">
+
+    <div>
+        <input type="text" id="surnameInput" placeholder="Введите новую фамилию">
+        <button onclick="changeSurname()">Изменить фамилию</button>
+        <button onclick="changeBackgroundColor()">Случайный фон</button>
+    </div>
+
+    <section>
+        <h3>О себе</h3>
+        <p>Я начинающий веб-разработчик, интересуюсь созданием интерактивных интерфейсов и современными технологиями в IT.</p>
+
+        <h3>Навыки</h3>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Работа с Git и GitHub</li>
+            <li>Базовое знание Python</li>
+            <li>Умение работать в команде</li>
+        </ul>
+
+        <h3>Опыт работы</h3>
+        <table>
+            <tr>
+                <th>Компания</th>
+                <th>Должность</th>
+                <th>Годы</th>
+            </tr>
+            <tr>
+                <td>WebStart</td>
+                <td>Стажёр фронтенд</td>
+                <td>2024</td>
+            </tr>
+            <tr>
+                <td>CodeSchool</td>
+                <td>Ученик</td>
+                <td>2023 – наст. время</td>
+            </tr>
+        </table>
+
+        <h3>Контакты</h3>
+        <p>
+            GitHub: <a href="https://github.com/" target="_blank">github.com/mohonatiypes</a><br>
+            Email: <a href="mailto:romul152@yandex.ru">romul152@yandex.ru</a>
+        </p>
+
+        <div id="datetime"></div>
+    </section>
+</body>
+</html>
